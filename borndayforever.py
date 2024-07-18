@@ -1,4 +1,4 @@
-# (МОДУЛЬ 2) bornday.py
+# (МОДУЛЬ 5) borndayforever.py
 actual_year = 1799
 actual_day = 26
 
@@ -8,7 +8,7 @@ def get_year():
         return int(input_year_str)
     else:
         print("Это должно бвть четырехзначное число.")
-        get_year()
+        return -1
 
 def get_day():
     birthday_str = input("Пушкин родился в мае. Введите какого числа: ")
@@ -21,18 +21,17 @@ def get_day():
     if(birthday >= 1 and birthday <= 31):
         return int(birthday_str)
     else:
-        print('Число быть может от 1 до 31.')
-        get_day()
+        print('Число должно быть от 1 до 31.')
+        return -1
 
-    
-if(get_year() == actual_year):
-    print('Отлично!')
-    if(get_day() == actual_day):
-        print('Верно')
-    else:
-        print('Неверный день рождления')
-else:
+   
+
+while(get_year() != actual_year):
     print('Неверный год рождения')
 
+print('Верно')
 
+while(get_day() != actual_day):
+    print('Неверный день рождения')
 
+print('Верно')
