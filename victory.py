@@ -12,8 +12,6 @@ celebrities = [('поэт Пушкин', 1799),
 
 total_questions = len(celebrities)
 
-def reset_counter():
-    count_right_answer = 0
 
 def get_year(celebrity):
     input_year_str = input(f'Введите в каком году родил(ся)/(ась) {celebrity[0]} ')
@@ -21,7 +19,7 @@ def get_year(celebrity):
         return int(input_year_str)
     else:
         print('Неправильный ответ! Вводите четырехзначное число.')
-        return -1
+        return 0
 
 print(greeting)
 
@@ -35,15 +33,18 @@ while play_again:
             print('Неправильный ответ!')
 
     score = (count_right_answer*100)/total_questions
-    print(f'Ваш результат: {score}')
-    print(f'Всего правильных ответов: {count_right_answer} из 5')
+    score_negative = ((total_questions - count_right_answer)*100)/total_questions
+    print(f'Ваш процент правильных ответов: {score}')
+    print(f'Ваш процент неправильных ответов: {score_negative}')
+    print(f'Всего правильных ответов: {count_right_answer} из {total_questions}')
+    print(f'Всего неправильных ответов: {total_questions - count_right_answer} из {total_questions}')
     print('Если хотите сыграть еще введите 1, если нет, то 0 ')
     repeat_str = input('Итак, введите ваш ответ: ')
     if(repeat_str.isnumeric() and repeat_str == '0'):
         play_again = False
     else:
         print(greeting)
-        reset_counter()
+        count_right_answer = 0
         
 print('Игрв закончена!')
 
