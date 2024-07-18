@@ -1,7 +1,5 @@
 # (МОДУЛЬ 2) bornyear.py
 actual_year = 1799
-actual_month_str = "Мая"
-actual_month_int = 5
 actual_day = 26
 
 def get_year():
